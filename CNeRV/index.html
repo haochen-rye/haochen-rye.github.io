@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html>
+<style>
+
+p {
+  font-size: 15px;
+}
+
+</style>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>CNeRV</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.">
+
+
+<!--     <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+  <link rel="icon" type="image/png" href="img/seal_icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110862391-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-110862391-1');
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+    <div class="container" id="main" >
+        <div class="row">
+            <h2 class="col-md-12 text-center">
+                CNeRV: Content-adaptive Neural Representation for Visual Data</br> 
+                <small>
+                    BMVC 2022
+                </small>
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                        <a href="https://haochen-rye.github.io">
+                          Hao Chen<sup>1</sup>
+                        </a>
+                    </li>
+                    Matthew Gwilliam<sup>1</sup>, Bo He<sup>1</sup>,  Ser-Nam Lim,  
+                    <li>
+                        <a href="http://www.cs.umd.edu/~abhinav/">
+                          Abhinav Shrivastava<sup>1</sup>
+                        </a>
+                    </li>
+                </ul>
+                <sup>1</sup> University of Maryland, College Park 
+            </div>
+        </div>
+
+
+
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Abstract
+                </h3>
+                <p class="text-justify">
+                    Compression and reconstruction of visual data have been widely studied in the computer vision community, even before the popularization of deep learning.
+                    More recently, some have used deep learning to improve or refine existing pipelines, while others have proposed end-to-end approaches, including autoencoders and implicit neural representations, such as SIREN and NeRV.
+                    In this work, we propose Neural Visual Representation with Content-adaptive Embedding (CNeRV), which combines the generalizability of autoencoders with the simplicity and compactness of implicit representation.
+                    We introduce a novel content-adaptive embedding that is unified, concise, and internally (within-video) generalizable, that compliments a powerful decoder with a single-layer encoder.
+                    We match the performance of NeRV, a state-of-the-art implicit neural representation, on the reconstruction task for frames seen during training while far surpassing for frames that are skipped during training (unseen images).
+                    To achieve similar reconstruction quality on unseen images, NeRV needs 120x more time to overfit per-frame due to its lack of internal generalization.
+                    With the same latent code length and similar model size, CNeRV outperforms autoencoders on reconstruction of both seen and unseen images.
+                    We also show promising results for visual data compression. We provide code in the supplementary material.                </p>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    CNeRV key takeaways
+                </h3>
+                <p class="text-justify">
+                    We propose a <b>content-adpative embedding</b> to introduce <b>internal generalization</b> for video neural representation.
+                    As shown in below image, CNeRV shows much better unseen PSNR and matches state-of-the-art seen PSNR, at fast encoding speed.
+                    <div class="column"><center>
+                        <img src="pdf_imgs/cnerv_teaser.pdf" alt="siren" style="width:90%">
+                      </div>                    
+                </p>
+                <h3>
+                    Method overview
+                </h3>
+                <p style="text-align:center;">
+                    <image src="pdf_imgs/cnerv-archi-bunny-3.pdf" style="width:105%" >
+                </p>
+
+                <h3>
+                    CNeRV architecture
+                </h3>
+                <p style="text-align:center;">
+                    <image src="pdf_imgs/cnerv-fig3.pdf" style="width:80%" >
+                </p>
+
+                <h3>
+                    CNeRV visualizations
+                </h3>
+                <p style="text-align:center;">
+                    <h4> <center> Unseen frames </center> </h4>
+                    <image src="pdf_imgs/unseen_pred_103_gt_ae_nerv_gnerv_28.43_15.08_35.3.pdf" style="width:105%" >
+                    <image src="pdf_imgs/unseen_pred_144_gt_ae_nerv_gnerv_28.45_22.59_30.13.pdf" style="width:105%" >
+                    <image src="pdf_imgs/unseen_pred_38_gt_ae_nerv_gnerv_28.69_14.11_24.88.pdf" style="width:105%" >                            
+                    <image src="pdf_imgs/unseen_pred_150_gt_ae_nerv_gnerv_23.6_9.21_31.56_full.pdf" style="width:105%"  >                            
+                </p>
+
+                <p style="text-align:center;">
+                    <h4> <center> Seen frames </center> </h4>
+                    <image src="pdf_imgs/seen_pred_206_gt_ae_nerv_gnerv_28.61_40.28_40.3.pdf" style="width:105%" >
+                    <image src="pdf_imgs/seen_pred_289_gt_ae_nerv_gnerv_28.52_39.72_39.18.pdf" style="width:105%" >
+                    <image src="pdf_imgs/seen_pred_79_gt_ae_nerv_gnerv_28.24_37.11_37.23.pdf" style="width:105%" >                            
+                    <image src="pdf_imgs/seen_pred_302_gt_ae_nerv_gnerv_23.63_32.5_32.2_full.pdf" style="width:105%"  >                            
+                </p>
+
+            </div>
+        </div>
+
+            
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Citation
+                </h3>
+       <div class="form-group col-md-10 col-md-offset-1">
+    <textarea id="bibtex" class="form-control" readonly>
+        @inproceedings{hao2022cnerv,
+            author = {Chen, Hao and Matthew, Gwilliam and He, Bo and Lim, Ser-Nam and Abhinav Shrivastava},
+            title = {CNeRV: Content-adaptive Neural Representation for Visual Data},
+            booktitle = {BMVC},
+            year={2022}
+        }
+    </textarea>
+                 </div> 
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <br> The website template was borrowed from <a href="https://bmild.github.io">Ben Mildenhall</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
