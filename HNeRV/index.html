@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html>
+<style>
+
+p {
+  font-size: 15px;
+}
+
+</style>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>HNeRV</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.">
+
+
+<!--     <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+  <link rel="icon" type="image/png" href="img/seal_icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110862391-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-110862391-1');
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+    <div class="container" id="main" >
+        <div class="row">
+            <h2 class="col-md-12 text-center">
+                HNeRV: A Hybrid Neural Representation for Videos</br> 
+                <small>
+                    Under Review
+                </small>
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                        <a href="https://haochen-rye.github.io">
+                          Hao Chen<sup>1</sup>
+                        </a>
+                    </li>
+                    Matthew Gwilliam<sup>1</sup>, Ser-Nam Lim,  
+                    <li>
+                        <a href="http://www.cs.umd.edu/~abhinav/">
+                          Abhinav Shrivastava<sup>1</sup>
+                        </a>
+                    </li>
+                </ul>
+                <sup>1</sup> University of Maryland, College Park 
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Abstract
+                </h3>
+                <p class="text-justify">
+                    Implicit neural representations store videos as neural networks and have performed well for vision tasks such as video compression and denoising. 
+                    With frame index and/or positional index as input, implicit representations (NeRV, E-NeRV, etc.) reconstruct video frames from  fixed and content-agnostic embeddings. 
+                    Such embedding largely limits the regression capacity and internal generalization for video interpolation. 
+                    In this paper, we propose a Hybrid Neural Representation for Videos (HNeRV), where learnable and content-adaptive embeddings act as decoder input. 
+                    Besides the input embedding, we introduce a HNeRV block to make model parameters evenly distributed across the entire network, therefore higher layers (layers near the output) can have more capacity to store high-resolution content and video details. 
+                    With content-adaptive embedding and re-designed model architecture, HNeRV outperforms implicit methods (NeRV, E-NeRV) in video regression task for both reconstruction quality and convergence speed, and shows better internal generalization.
+                    As a simple and efficient video representation, HNeRV also shows decoding advantages for speed, flexibility, and deployment, compared to traditional codecs (H.264, H.265) and learning-based compression methods. 
+                    Finally, we explore the effectiveness of HNeRV on downstream tasks such as video compression and video inpainting.            </p>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+
+                <h3>
+                    1) HNeRV overview
+                </h3>
+                <div class="paper" style="float:left; display:inline-block; margin-bottom: 25px;"> 
+                    <span style="float:left;width: 50%;">
+                        <img src="img/HNeRV-ICLR-teaser-bottom.pdf" alt="" width="98%" >
+                        <p style="text-align:center;">
+                        We propose a <strong>hybrid</strong> video neural representation to store videos in two parts: frame embeddings and a decoder.
+                        </p>
+                    </span>
+                    <span style="float:left;width: 50%;">
+                        <img src="img/hnerv_epoch.pdf" alt="" width="98%" >
+                    </span>                                
+                </div>
+
+
+
+                <h3>
+                    2) HNeRV architecture
+                </h3>
+                <div style="margin-bottom: 25px">
+                <img src="img/HNeRV-ICLR-archi-3.pdf"  width="100%">
+                </div>
+
+                <h4 align="center">
+                    Balanced parameters
+                </h4>
+
+                <div class="paper" style="float:left; display:inline-block; margin-bottom: 25px;"> 
+                    <span style="float:left;width: 50%;">
+                        <img src="img/parameter_balance.png" alt="" width="98%" >
+                        <p style="text-align:center;">
+                            K: (K<sub>min</sub>, K<sub>max</sub>); &nbsp&nbsp&nbsp&nbsp&nbsp
+                            r = C<sub>out</sub> / C<sub>in</sub>. <br>
+                        We increase kernel sizes and channel withs (smaller r) for higher layers, to balance parameters.
+                        </p>
+                    </span>
+                    <span style="float:left;width: 50%;">
+                        <img src="img/parameter_distribution.pdf" alt="" width="98%" >
+                    </span>                       
+                </div>
+
+                <h3>
+                    3) Video Regression
+                </h3>
+                <div style="margin-bottom: 25px">
+                <img src="img/size_epochs_ablatins.png" alt="" width="100%" >
+                </div>
+                <h4 align="center">
+                    Visualization results
+                </h4>                
+                <img src="img/fig5_v0.png" alt="" width="100%" >
+
+
+                <h3>
+                    4) Video Decoding
+                </h3>
+                <div style="margin-bottom: 25px">
+                <img src="img/decoding_all_wide.pdf" alt="" width="100%" >
+                </div>
+
+
+                <h3>
+                    5) Internel Generalization
+                </h3>
+                <h4 align="center">
+                    Embedding interpolation results
+                </h4>                      
+                <div style="margin-bottom: 25px">
+                <img src="img/bmx-interpolate.pdf" alt="" width="100%" >
+                <img src="img/cameral-interpolate-full.pdf" alt="" width="100%" >
+                </div>
+
+                <h3>
+                    6) Video Compression
+                </h3>
+                <h4 align="center">
+                    Overall results on UVG dataset
+                </h4>                      
+                <div style="margin-bottom: 25px">
+                <img src="img/hnerv_uvg.pdf" alt="" width="100%" >
+                </div>
+                <h4 align="center">
+                    Best & owrst cases on UVG dataset
+                </h4>                      
+                <div style="margin-bottom: 25px">
+                <img src="img/hnerv_best_worst.pdf" alt="" width="100%" >
+                </div>
+
+                <h3>
+                    6) Video inpainting
+                </h3>
+                <div style="margin-bottom: 25px">
+                <img src="img/inpaint_swan_short.pdf" alt="" width="100%" >
+                <img src="img/cows-inpaint.pdf" alt="" width="100%" >
+                <p class="text-justify" style="font-size:20px;">
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; HNeRV input &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; HNeRV output
+                </p>                
+                </div>
+
+
+            </div>
+        </div>
+
+            
+        <!-- <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Citation
+                </h3>
+       <div class="form-group col-md-10 col-md-offset-1">
+    <textarea id="bibtex" class="form-control" readonly>
+        @inproceedings{hao2022cnerv,
+            author = {Chen, Hao and Matthew, Gwilliam and Lim, Ser-Nam and Abhinav Shrivastava},
+            title = {HNeRV: Content-adaptive Neural Representation for Visual Data},
+            booktitle = {BMVC},
+            year={2022}
+        }
+    </textarea> -->
+                 </div> 
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <br> The website template was borrowed from <a href="https://bmild.github.io">Ben Mildenhall</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
