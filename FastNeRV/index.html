@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html>
+<style>
+
+p {
+  font-size: 15px;
+}
+
+</style>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>HNeRV</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.">
+
+
+<!--     <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+  <link rel="icon" type="image/png" href="img/seal_icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110862391-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-110862391-1');
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+    <div class="container" id="main" >
+        <div class="row">
+            <h2 class="col-md-12 text-center">
+                Fast Encoding and Decoding for Implicit Video Representation</br> 
+                <small>
+                    <a href="https://cvpr2023.thecvf.com"> CVPR 2023 </a>  
+                </small>                    
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                        <a href="https://haochen-rye.github.io">
+                          Hao Chen<sup>1</sup> &nbsp &nbsp
+                        </a>
+                    </li>
+                    Saining Xie<sup>2</sup>, &nbsp &nbsp
+                    Ser-Nam Lim<sup>3</sup>,  &nbsp &nbsp
+                    <li>
+                        <a href="http://www.cs.umd.edu/~abhinav/">
+                          Abhinav Shrivastava<sup>4</sup>
+                        </a>
+                    </li>
+                </ul>
+                <p>
+                    <sup>1</sup> ByteDance  &nbsp &nbsp &nbsp
+                    <sup>2</sup> New York University,  &nbsp &nbsp &nbsp    
+                </p>
+                <p>
+                    <sup>3</sup> University of Central Florida  &nbsp &nbsp &nbsp
+                    <sup>4</sup> University of Maryland, College Park  &nbsp &nbsp &nbsp
+                </p>
+            </div>
+            <div class="row">
+                <h2 class="col-md-12 text-center">
+                    <small>
+                    <a href=""> Paper</a> &nbsp &nbsp &nbsp &nbsp &nbsp
+                    <a href="https://github.com/haochen-rye/FastNeRV"> Code</a>         
+                    </small>                    
+                </h2>
+            </div>
+    </div>
+
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Abstract
+                </h3>
+                <p class="text-justify">
+                    Despite the abundant availability and content richness for video data, its  high-dimensionality poses challenges for video research. Recent advancements have explored the implicit representation for videos using neural networks, demonstrating strong performance in applications such as video compression and enhancement. However, the prolonged encoding time remains a persistent challenge for video Implicit Neural Representations (INRs).  In this paper,  we focus on improving the speed of video encoding and decoding within implicit representations. We introduce two key components: NeRV-Enc, a transformer-based hyper-network for fast encoding; and NeRV-Dec, a parallel decoder for efficient video loading. NeRV-Enc achieves an impressive speed-up of $\mathbf{10^4\times}$ by eliminating gradient-based optimization. Meanwhile, NeRV-Dec simplifies video decoding, outperforming conventional codecs with a loading speed $\mathbf{11\times}$ faster, and surpassing RAM loading with pre-decoded videos ($\mathbf{2.5\times}$ faster while being $\mathbf{65\times}$ smaller in size).
+                    \keywords{Implicit video representation \and efficient video coding}
+                  
+                </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <br> The website template was borrowed from <a href="https://bmild.github.io">Ben Mildenhall</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
