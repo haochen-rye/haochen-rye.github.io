@@ -13,7 +13,7 @@ p {
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>HNeRV</title>
+    <title>FastNeRV</title>
 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.">
@@ -53,7 +53,7 @@ p {
             <h2 class="col-md-12 text-center">
                 Fast Encoding and Decoding for Implicit Video Representation</br> 
                 <small>
-                    <a href="https://cvpr2023.thecvf.com"> CVPR 2023 </a>  
+                    <a href="https://eccv.ecva.net/"> ECCV 2024 </a>  
                 </small>                    
             </h2>
         </div>
@@ -100,11 +100,105 @@ p {
                     Abstract
                 </h3>
                 <p class="text-justify">
-                    Despite the abundant availability and content richness for video data, its  high-dimensionality poses challenges for video research. Recent advancements have explored the implicit representation for videos using neural networks, demonstrating strong performance in applications such as video compression and enhancement. However, the prolonged encoding time remains a persistent challenge for video Implicit Neural Representations (INRs).  In this paper,  we focus on improving the speed of video encoding and decoding within implicit representations. We introduce two key components: NeRV-Enc, a transformer-based hyper-network for fast encoding; and NeRV-Dec, a parallel decoder for efficient video loading. NeRV-Enc achieves an impressive speed-up of $\mathbf{10^4\times}$ by eliminating gradient-based optimization. Meanwhile, NeRV-Dec simplifies video decoding, outperforming conventional codecs with a loading speed $\mathbf{11\times}$ faster, and surpassing RAM loading with pre-decoded videos ($\mathbf{2.5\times}$ faster while being $\mathbf{65\times}$ smaller in size).
-                    \keywords{Implicit video representation \and efficient video coding}
-                  
+                    <p>Despite the abundant availability and content richness for video data,
+                         its high-dimensionality poses challenges for video research. 
+                         Recent advancements have explored the implicit representation for videos using neural networks, 
+                         demonstrating strong performance in applications such as video compression and enhancement. 
+                         However, the prolonged encoding time remains a persistent challenge for video Implicit Neural Representations (INRs). 
+                        In this paper, we focus on improving the speed of video encoding and decoding within implicit representations. 
+                        We introduce two key components: NeRV-Enc, a transformer-based hyper-network for fast encoding; 
+                        and NeRV-Dec, a parallel decoder for efficient video loading. NeRV-Enc achieves an impressive speed-up of <strong>10<sup>4</sup>×</strong> 
+                        by eliminating gradient-based optimization. Meanwhile, NeRV-Dec simplifies video decoding, 
+                        outperforming conventional codecs with a loading speed <strong>11×</strong> faster, 
+                        and surpassing RAM loading with pre-decoded videos (<strong>2.5×</strong> faster 
+                        while being <strong>65×</strong> smaller in size).</p>
                 </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+
+                <h3>
+                    1) Overview of FastNeRV
+                </h3>
+                <!-- <div class="paper" style="float:left; display:inline-block; margin-bottom: 25px;">  -->
+                    <p align="center">
+                        <h4 align="left">
+                            a) Overall framework of our Fast encoding & decoding framework
+                        </h4>                              
+                        <img src="img/framework.png" alt="" height="350" class="center">
+                        <h4 align="left">
+                            b) Significant speedup for encoding & decoding
+                        </h4>        
+                        <img src="img/overall-results.png" alt="" height="200" >    
+                        <br /> <br />
+                    </p>
+                <!-- </div> -->
+
+                <h3>
+                    2) Fast Video Encoding 
+                </h3>
+                <h4 align="left">
+                    a) Encoding speedup without Gradient-based Optimization
+                </h4>    
+                
+                <div style="margin-bottom: 25px; ">
+                    <img src="img/encode-fig.png" alt="center" width="80%" >
+                <h4 align="left">
+                    b) Our image-wise implicit representtation VS pixel-wise implicit representation
+                </h4>    
+                    <img src="img/encoding-table .png" alt="" width="100%" >
+                </div>
+
+
+                <h3>
+                    3) Video Decoding via Efficent Paralleization
+                </h3>
+                <div style="margin-bottom: 25px">
+                    <h4 align="left">
+                        a) Parallel Decoding based on NeRV-Dec
+                    </h4>                        
+                    <img src="img/decode-method.png" alt="" width="50%" >
+                    <h4 align="left">
+                        b) Decoding speedup
+                    </h4>                          
+                    <img src="img/decode-speed.png" alt="" width="80%" >
+                </div>
+
+
+                <h3>
+                    4) Video restoration in implicit space
+                </h3>
+                <div style="margin-bottom: 25px">
+                    <img src="img/restoration.png" alt="" width="100%" >
+                <p class="text-justify" style="font-size:20px; text-align:center;">
+                    <strong> Top: </strong> Input degraded videos. <br>
+                    <strong> Bottom: </strong> Output restored videos.
+                </p>                
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Citation
+                </h3>
+       <div class="form-group col-md-10 col-md-offset-1">
+    <textarea id="bibtex" class="form-control" readonly>
+        @InProceedings{chen2024fastnerv,
+            title={Fast Encoding and Decoding for Implicit Video Representation            }, 
+            author={Hao Chen and Saining Xie and Ser-Nam Lim and Abhinav Shrivastava},
+            year={2024},
+            booktitle={ECCV},
+      }
+    </textarea>
+                 </div> 
+            </div>
+        </div>
+
 
 
         <div class="row">
